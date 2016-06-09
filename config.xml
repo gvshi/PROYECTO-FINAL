@@ -8,52 +8,29 @@
 		<name>Proyecto Final</name>
 		<description>Proyecto Final de Taller de Aplicaciones Moviles Hibridas  2016-1</description>
 		<author href="" email="alberto.gtz93@outlook.com">Alberto Gutierrez</author>
-		<feature name="http://api.phonegap.com/1.0/battery"/>
-		<feature name="http://api.phonegap.com/1.0/camera"/>
-		<feature name="http://api.phonegap.com/1.0/contacts"/>
-		<feature name="http://api.phonegap.com/1.0/file"/>
-		<feature name="http://api.phonegap.com/1.0/geolocation"/>
-		<feature name="http://api.phonegap.com/1.0/media"/>
-		<feature name="http://api.phonegap.com/1.0/network"/>
-		<feature name="http://api.phonegap.com/1.0/notification"/>
-<preference name="phonegap-version" value="cli-6.1.0" />
-<preference name="android-build-tool" value="gradle" />
-<preference name="orientation" value="default" />
-<preference name="fullscreen" value="true" />
-<preference name="target-device" value="universal" />
-<preference name="webviewbounce" value="true" />
-<preference name="prerendered-icon" value="false" />
-<preference name="stay-in-webview" value="true" />
-<preference name="ios-statusbarstyle" value="default" />
-<preference name="detect-data-types" value="true" />
-<preference name="exit-on-suspend" value="true" />
-<preference name="show-splash-screen-spinner" value="true" />
-<preference name="auto-hide-splash-screen" value="true" />
-<preference name="FadeSplashScreen " value="true" />
-<preference name="EnableViewportScale" value="false" />
-<preference name="MediaPlaybackRequiresUserAction" value="false" />
-<preference name="AllowInlineMediaPlayback" value="true" />
-<preference name="BackupWebStorage" value="none" />
-<preference name="TopActivityIndicator" value="white" />
-<preference name="KeyboardDisplayRequiresUserAction" value="true" />
-<preference name="KeyboardShrinksView " value="true" />
-<preference name="HideKeyboardFormAccessoryBar" value="true" />
-<preference name="SuppressesIncrementalRendering" value="false" />
-<preference name="windows-identity-name" value="" />
-<preference name="android-installLocation" value="auto" />
-<preference name="SplashScreenDelay" value="2000" />
-<preference name="ErrorUrl" value="null" />
-<preference name="BackgroundColor" value="0x000000" />
-<preference name="DisallowOverscroll" value="false" />
-<preference name="LoadingDialog" value="," />
-<preference name="LoadUrlTimeoutValue" value="null" />
-		<platform name="ios">
-		</platform>
-		<platform name="android">
-		<icon src="" />
-		</platform>
-		<platform name="winphone">
-		</platform>
+		
+		<description>
+        Proyecto Final de Taller de Aplicaciones Moviles Hibridas  2016-1  
+    </description>
+        
+    <platform name="android" >
+        <preference name="orientation" value="portrait" />
+    </platform>
+        
+    <preference name="fullscreen" value="true" />
+    <plugin name="cordova-plugin-geolocation" spec="1.0.1" source="pgb" />
+    <plugin name="org.apache.cordova.geolocation" spec="0.3.12" source="pgb" />
+    <plugin name="org.apache.cordova.camera" />
+    <plugin name="org.apache.cordova.media-capture" />
+    <plugin name="org.apache.cordova.device-orientation" />
+    <plugin name="org.apache.cordova.dialogs" />
+    <plugin name="org.apache.cordova.file" />
+    <plugin name="org.apache.cordova.file-transfer" />
+    <plugin name="org.apache.cordova.geolocation" />
+    <plugin name="org.apache.cordova.inappbrowser" />
+    <plugin name="org.apache.cordova.media" />
+    <plugin name="org.apache.cordova.network-information" />
+    <plugin name="org.apache.cordova.splashscreen" />
 		 <icon src="icon.png" />
 <access origin="http://maps.googleapis.com" subdomains="true" />
 </widget>
