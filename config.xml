@@ -4,7 +4,7 @@
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.phonegap.proyectofinal"
 		versionCode="1"
-		version   = "1.5.3">
+		version   = "1.6.0">
 		<name>Proyecto Final</name>
 		<description>Proyecto Final de Taller de Aplicaciones Moviles Hibridas  2016-1</description>
 		<author href="" email="alberto.gtz93@outlook.com">Alberto Gutierrez</author>
