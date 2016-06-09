@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>REGISTRO DE USUARIO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="estilo.css" type="text/css">   
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+</head>
+    
+    <body>
+        <nav>
+            <h1>Registro de Usuario</h1>               
+        </nav>  
+        
+    <div class="contenedor" id="container">
+        <input id="espacio" disabled>
+        <input type="text" placeholder="Nombre" id="nombreUs" required>
+        <input type="email" placeholder="Correo" id="correo" required>
+        <input type="password" placeholder="Contraseña" id="contraseña" required>
+        <input type="password" placeholder="Confirmación de Contraseña" id="ccontraseña" required>
+        <button onclick="registro()" id="button">Regístrate</button>        
+        <input type="button" id="btnmenu" onclick="login()" value="Inicia sesión">
+    </div> 
+
+    <script>
+       function registro(){
+           nombreUs = document.getElementById('nombreUs').value;
+           correo = document.getElementById('correo').value;
+           contraseña = document.getElementById('contraseña').value;
+           ccontraseña = document.getElementById('ccontraseña').value;
+           
+                if(contraseña == ccontraseña && contraseña != "" && correo != "" && nombreUs != ""){
+                   
+                    alert('¡Registro exitoso!');
+                    
+                    localStorage.setItem('nombreUs', nombreUs);
+                    localStorage.setItem('correo', correo);
+                    localStorage.setItem('contraseña', contraseña);
+                    
+                    window.location.assign('login.html');          
+                }
+                if(contraseña == "" | ccontraseña == "" | correo == "" | nombreUs == ""){
+                    alert('Debes llenar todos los datos');
+                }
+                if(contraseña != ccontraseña){
+                    alert('Las contraseñas deben coincidir');
+                }
+        }          
+       
+            function login(){
+                 window.location.assign('login.html');
+            }
+    </script>
+</body>
+</html>

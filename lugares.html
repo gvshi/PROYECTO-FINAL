@@ -1,0 +1,58 @@
+<html>
+    <head>
+    <tittle>Lugares Guardados</tittle>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no"> 
+        <link href="estilo.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+    </head>
+    
+    
+    <body>
+        
+        <div class="encabezado">
+            <h2>Lugares Guardados</h2>
+            <button onclick="registro()" class="boton-flotante">
+        <img src="ic_add_box_black_18dp.png" height="50" width="50">
+    </button>
+        </div>  
+                    
+        <div class="container" id="contenedor-lugares"> 
+
+        </div>
+        
+        <script>
+           function registro(){
+               window.location.assign('main.html');
+           }
+        //Escuchador de eventos 
+             
+        window.addEventListener('load',cargada,true);
+        
+            function cargada(){
+               contador = localStorage.getItem('contador');
+                var i=0;
+                var nombre = [];
+                var precio = [];
+                var categoria = [];
+                var localizacion = [];
+                for(i=1;i<contador;i++){
+                    nombre[i] = localStorage.getItem('nombre'+i);
+                    precio[i] = localStorage.getItem('precio'+i);
+                    categoria[i] = localStorage.getItem('categoria'+i);
+                    localizacion[i] = localStorage.getItem('localizacion'+i);        
+                }         
+                       
+               // Imprimir los lugares en un while
+               var i=1;
+                while(i<contador){
+                    contenedorlugares=document.getElementById('contenedor-lugares');
+                    contenedorlugares.innerHTML += "<div class='lugar'><img id='map' src='http://maps.googleapis.com/maps/api/staticmap?center="+localizacion[i]+"&zoom=15&markers="+localizacion[i]+"|"+localizacion[i]+"&size=175x175'><n>"+nombre[i]+"</n><p>$"+precio[i]+"</p><c>"+categoria[i]+"</c></div>"
+                    i++;
+                }
+                    
+                
+            }
+        </script>
+      </body>    
+</html>

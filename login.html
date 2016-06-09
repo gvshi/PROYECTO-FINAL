@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>INICIO DE SESIÓN</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="estilo.css" type="text/css">   
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+</head>
+    
+<body>
+        <nav>
+        <h1>Inicio de sesión</h1>
+        </nav>  
+        
+       <div class="contenedor">
+        <input id="espacio" disabled>
+        <input type="email" placeholder="Correo" id="correo" required>
+        <input type="password" placeholder="Contraseña" id="contraseña" required>
+        <button onclick="login()" id="button">Iniciar Sesión</button>
+        <input type="button" id="btnmenu" onclick="registro()" value="Registrate">
+           
+        </div> 
+        
+    <script>
+        function login(){
+            correologin = document.getElementById('correo').value;
+            contraseñalogin = document.getElementById('contraseña').value;
+            correo = localStorage.getItem('correo');
+            contraseña = localStorage.getItem('contraseña');          contador = localStorage.getItem('contador');
+                 if(contador == null){
+                         contador=0;
+                         localStorage.setItem('contador', contador );
+                     } 
+                if(contraseña == contraseñalogin && correo == correologin && correo != "" && contraseña != ""){
+                   
+                    alert('¡Inicio de Sesión Exitoso!');
+
+                    window.location.assign('main.html');          
+                }
+               if(correo == correologin && contraseña != contraseñalogin){
+                    alert('La contraseña no es correcta. Por favor, vuelve a intentarlo.');
+                } 
+            if(correologin == ""){
+                    alert('El correo no puede estar vacio');
+                } 
+            if(correologin != correo && correologin !="" ){
+                    alert('Usuario no Registrado');
+                }    
+           
+       }
+        function registro(){
+            window.location.assign('index.html');
+        }
+    </script>
+</body>
+</html>

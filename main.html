@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>Pagina Principal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="estilo.css" type="text/css">   
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+</head>
+    
+<body>
+    
+    
+        <nav>
+            <h2>Registro de Lugares</h2>
+            <button onclick="lugares()" class="boton-flotante">
+        <img src="ic_map_black_18dp.png" height="50" width="50">
+    </button>
+        </nav> 
+           <div class="contenedor">
+               
+            
+<img id="mapa">
+ 
+    
+
+    
+        <input id="espacio" disabled>
+        <input type="text" placeholder="Nombre del Lugar" id="nombre" required>
+        <input type="number" placeholder="Precio" id="precio" required>
+        <input type="text" placeholder="Categoria" id="categoria" required>
+               <input value="☆" id="☆" disabled>
+
+        <select id="calificacion">
+            <option id="calificacion" value ="1" >1</option> 
+        <option id="calificacion" Value ="2">2</option> 
+        <option id="calificacion" Value ="3">3</option> 
+        <option id="calificacion" Value ="4">4</option> 
+        <option id="calificacion" Value ="5">5</option> 
+        </select>
+               <img onclick="guardar()" class="agregar-lugar" src="ic_save_black_18dp.png" height="50" width="50">
+    <script>
+        window.addEventListener('load',geolocalizar,true);
+        function geolocalizar(){
+        
+           navigator.geolocation.getCurrentPosition(verPosicion);
+            
+        }
+        function verPosicion(posicion){
+
+            mapa=document.getElementById('mapa');
+            mapa.src="http://maps.googleapis.com/maps/api/staticmap?center=" + posicion.coords.latitude + ',' + posicion.coords.longitude+"&zoom=15&size=175x175&markers=color:red%7Clabel:YO!%7c" + posicion.coords.latitude + ',' + posicion.coords.longitude;
+            localizacion = posicion.coords.latitude + ',' + posicion.coords.longitude;
+            localStorage.setItem('localizacion', localizacion);
+        }
+        function lugares(){
+            window.location.assign('lugares.html');
+        }
+        function guardar(){
+        nombre = document.getElementById('nombre').value;
+        precio = document.getElementById('precio').value;
+        categoria = document.getElementById('categoria').value;
+        calificacion = document.getElementById('calificacion').value;
+        contador = localStorage.getItem('contador');
+        localizacion = localStorage.getItem('localizacion');
+            if(contador== null){
+                contador=1;
+            }
+            if(nombre != "" && precio != "" && categoria != "" && calificacion != "" ){                   
+                alert('¡Datos Guardados!');
+            localStorage.setItem('nombre'+contador, nombre);
+            localStorage.setItem('precio'+contador, precio);
+            localStorage.setItem('categoria'+contador, categoria);
+            localStorage.setItem('calificacion'+contador, calificacion);
+            localStorage.setItem('localizacion'+contador,localizacion);
+                              
+                }
+            else{
+                alert('Todos los datos deben estar completos');
+            }
+            
+            
+            contador++;
+            localStorage.setItem('contador',contador)
+        }
+    </script>
+    </div>
+    </body>
+</html>
